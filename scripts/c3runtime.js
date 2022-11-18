@@ -3912,7 +3912,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetX,
 		C3.Plugins.Sprite.Acts.SetY,
 		C3.Plugins.Sprite.Cnds.OnCollision,
-		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Sprite.Cnds.IsCollisionEnabled,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
@@ -3932,7 +3931,10 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Audio.Acts.FadeVolume,
 		C3.Plugins.Audio.Cnds.IsTagPlaying,
 		C3.Plugins.Sprite.Cnds.CompareOpacity,
-		C3.Plugins.Sprite.Acts.SetEffectEnabled
+		C3.Plugins.Sprite.Acts.SetEffectEnabled,
+		C3.Plugins.System.Cnds.OnLoadFinished,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.System.Exps.loadingprogress
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4179,6 +4181,7 @@ self.C3_ExpressionFuncs = [
 		() => "homebgm",
 		() => "menu",
 		() => "gamebgm",
+		() => "yabai",
 		() => "mangabgm2",
 		() => 0.2,
 		() => 485,
@@ -4242,8 +4245,8 @@ self.C3_ExpressionFuncs = [
 		() => "walk",
 		() => 2.5,
 		() => -100,
-		() => "changepage",
 		() => "fade",
+		() => "changepage",
 		() => "manga2-1",
 		() => "manga2-6",
 		() => "pa",
@@ -4261,10 +4264,9 @@ self.C3_ExpressionFuncs = [
 		() => "manga3-1",
 		() => "ki",
 		() => "manga3-2",
-		() => 1.3,
 		() => "bork1",
 		() => "ea",
-		() => "yabai",
+		() => 1.7,
 		() => "manga3-3",
 		() => "aaa",
 		() => "fade3",
@@ -4276,7 +4278,11 @@ self.C3_ExpressionFuncs = [
 		() => "manga4-4",
 		() => "manga4-5",
 		() => -5,
-		() => "Grayscale"
+		() => "Grayscale",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => and(Math.round((f0() * 100)), "  %");
+		}
 ];
 
 
