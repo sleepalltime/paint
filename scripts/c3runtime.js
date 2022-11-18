@@ -3919,6 +3919,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Plugins.System.Exps.choose,
+		C3.Behaviors.DragnDrop.Acts.SetEnabled,
 		C3.Behaviors.Fade.Cnds.OnWaitEnd,
 		C3.Plugins.Audio.Cnds.OnEnded,
 		C3.Plugins.Sprite.Acts.SetAnim,
